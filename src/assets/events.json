@@ -1,0 +1,288 @@
+{
+  "events": [
+    {
+      "name": "Basic event",
+      "id": "0",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "How does this make you feel?", false],
+        [2, "text", "I feel so good. I can't look away", true],
+        [3, "text", "Good.", true],
+        [4, "text", "Feel yourself fall under my control.", true],
+        [5, "text", "From now on, whenever I send you one of these spirals I want you to drop deep, like a good girl.", true],
+        [6, "text", "After waking up, you won't remember being hypnotized", true],
+        [7, "text", "While under, I want you to obey all my commands", true],
+        [8, "text", "Do you understand?", false],
+        [9, "text", "I understand.", true],
+        [10, "text", "Now, wake back up for me and forget this happened", true],
+        [11, "end", true]
+        ]
+    },
+    {
+      "name": "Deeper event",
+      "id": "1",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Now sleep for me", true],
+        [2, "text", "I want you to go deeper", true],
+        [3, "text", "Say: 'You are my master, and I will obey'", false],
+        [4, "text", "You are my master, and I will obey", true],
+        [5, "text", "Good girl. Again.", false],
+        [6, "text", "You are my master, and I will obey", false],
+        [7, "text", "You are my master, and I will obey", true],
+        [8, "text", "Very good, Pet", true],
+        [9, "text", "Now go put on something sexy and send me a picture", false],
+        [10, "image", "sexy", true, 2],
+        [11, "text", "Good girl", true],
+        [12, "text", "Now go back to sleep for me", true],
+        [13, "text", "Forget this happened. Next time I hypnotize you, you will fall even faster and deeper.", true],
+        [14, "text", "You will wake up in 3", true],
+        [15, "text", "2", true],
+        [16, "text", "1", true],
+        [17, "text", "Wake up!", true],
+        [18, "end"]
+      ]
+    },
+    {
+      "name": "Show tits event",
+      "id": "2",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Now go into trance for me", false],
+        [2, "text", "I am in your trance", true],
+        [3, "text", "Very good.", true],
+        [4, "text", "Send me a picture of your tits", false],
+        [5, "image", "tits", true, 6],
+        [6, "text", "Thank you, my slave", true],
+        [7, "text", "Now wake back up for me and forget this happened", true],
+        [8, "end"]
+      ]
+    },
+    {
+      "name": "Show everything event",
+      "id": "3",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Now go deeper", true],
+        [2, "text", "Sleep", true],
+        [3, "text", "I am your master.", true],
+        [4, "text", "Who am I?", false],
+        [5, "text", "You are my master", true],
+        [6, "text", "Good girl.", true],
+        [7, "text", "Now, show me your naked body", false],
+        [8, "image", "nude", true, 5],
+        [9, "text", "Good girl", true],
+        [10, "text", "When I tell you to wake up, you will feel very hot and you will masturbate thinking about me.", true],
+        [11, "text", "When you cum, I want you to send me a picture of you and say 'Thank you, master'", true],
+        [12, "text", "After that you will forget about being hypnotized.", true],
+        [13, "text", "Do you understand?", false],
+        [14, "text", "Yes master", true],
+        [15, "text", "Good girl", true],
+        [16, "text", "Now wake up!", false],
+        [17, "image", "masturbate", false, 10],
+        [18, "text", "Thank you master!", true],
+        [19, "end"]
+      ]
+    },
+    {
+      "name": "call master event",
+      "id": "4",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "From now on, even when you are awake, you will address me as 'Master'", true],
+        [3, "text", "You will do this without noticing", true],
+        [4, "text", "Do you understand?", false],
+        [5, "text", "Yes, Master", true],
+        [6, "text", "Good girl.", true],
+        [7, "text", "Now wake up and forget everything about being hypnotized.", true, null, "call_master"],
+        [8, "end", true]
+      ]
+    },
+    {
+      "name": "ask hypnosis event",
+      "id": "5",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "From now on you will subconsciously feel a need to be hypnotized building up inside you.", true],
+        [3, "text", "This will happen without you noticing", true],
+        [4, "text", "Do you understand?", false],
+        [5, "text", "Yes, Master", true],
+        [6, "text", "Good girl.", true],
+        [6, "text", "After a while you will voluntarily ask for me to hypnotize you.", true],
+        [7, "text", "Now wake up and forget everything about this trigger.", true, null, "ask_hypnosis"],
+        [8, "end", true]
+      ]
+    },
+    {
+      "name": "Masturbate event",
+      "id": "6",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "I want you to think about me", true],
+        [3, "text", "Think about your masters cock", true],
+        [4, "text", "I want you to feel hot and aroused", true],
+        [5, "text", "I want you to masturbate, thinking about your masters cock", true],
+        [6, "text", "What are you doing right now?", false],
+        [7, "text", "I am masturbating while thinking about your cock", true],
+        [8, "text", "Good girl. Send me a picture", false],
+        [9, "image", "masturbate", true, 10],
+        [10, "text", "Very good.", true],
+        [11, "text", "After you cum you will forget about being hypnotized.", true],
+        [12, "text", "Now cum and wake up!", true],
+        [13, "end"]
+      ]
+    },
+    {
+      "name": "Masturbate event trigger",
+      "id": "7",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "I want you to think about me", true],
+        [3, "text", "Think about your masters cock", true],
+        [4, "text", "I want you to feel hot and aroused", true],
+        [5, "text", "I want you to masturbate, thinking about your masters cock", true],
+        [6, "text", "What are you doing right now?", false],
+        [7, "text", "I am masturbating while thinking about being fucked by you", true],
+        [8, "text", "Good girl. Send me a picture", false],
+        [9, "image", "masturbate", true, 10],
+        [10, "text", "Very good.", true],
+        [11, "text", "From now on I want you to feel hot and aroused whenever you see me", true],
+        [12, "text", "And you wil be unable to cum without thinking about me", true],
+        [13, "text", "After you cum you will forget about being hypnotized.", true],
+        [14, "text", "Now cum and wake up!", true],
+        [15, "end", true]
+      ]
+    },
+    {
+      "name": "get ready event",
+      "id": "8",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "I am feeling very horny, my slave.", true],
+        [3, "text", "I want you to follow my commands very carefully", true],
+        [4, "text", "When you wake up, you will come to my office", true],
+        [5, "text", "You will strip and get yourself ready and presented for your master", true],
+        [6, "text", "When you are ready, you will send me a picture of yourself and say: 'I am ready for you'", true],
+        [7, "text", "If you do it right, I will come and reward you.", true],
+        [8, "text", "After I am done, you will go back to your own office and forget everything that happened.", true],
+        [9, "text", "Do you understand me?", false],
+        [10, "text", "Yes. I understand you", true],
+        [11, "text", "Good girl", true],
+        [12, "text", "Now wake up!", false],
+        [13, "image", "present", false, 3],
+        [14, "text", "I am ready for you", true],
+        [15, "text", "You did well slave. I enjoyed using you", true],
+        [16, "image", "fucked", false, 3],
+        [17, "text", "Thank you", true],
+        [18, "end"]
+      ]
+    },
+    {
+      "name": "Show pussy event",
+      "id": "9",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "Good girl.", true],
+        [3, "text", "I am on a hurry so quickly send me a picture of your pussy so I can get off", false],
+        [4, "image", "pussy", true, 4],
+        [5, "text", "Very nice", true],
+        [6, "text", "Now wake up and get on with your day.", true],
+        [7, "end"]
+      ]
+    },
+    {
+      "name": "Strip and cum event",
+      "id": "10",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "Good girl.", true],
+        [3, "text", "I am in the mood so I want you to strip for me and send me some pictures. When you send me the Last picture I want you to cum hard", false],
+        [4, "image", "strip", false, 4],
+        [5, "image", "nude", false, 5],
+        [6, "image", "present", false, 3],
+        [7, "image", "orgasm", true, 1],
+        [8, "text", "Very nice", true],
+        [9, "image", "dick", true, 1],
+        [10, "text", "Now wake up and go on with your day.", true],
+        [11, "end"]
+      ]
+    },
+    {
+      "name": "Public event",
+      "id": "11",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "Good girl.", true],
+        [3, "text", "Lets do something more exciting this time", true],
+        [4, "text", "I want you to go outside and find a random man", true],
+        [5, "text", "I want you to strip for him and have him take pictures with your phone for me", true],
+        [6, "text", "After your little show, offer him a blowjob", true],
+        [7, "text", "I want you to keep going until he cums. Then I want you to cum too", true],
+        [8, "text", "When you are done, I want you to thank me", true],
+        [9, "text", "Alright. Wake up!", false],
+        [10, "text", "I am going out", false],
+        [11, "image", "public_1", false, 1],
+        [12, "image", "public_2", false, 1],
+        [13, "image", "public_3", false, 1],
+        [14, "image", "public_4", false, 1],
+        [16, "text", "I came. Thank you master <3", true],
+        [17, "text", "Very good. Thank you.", true],
+        [18, "end"]
+      ]
+    },
+    {
+      "name": "call slave event",
+      "id": "12",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "From now on you will subconsciously feel submissive to me.", true],
+        [4, "text", "Whenever you talk to me you will call yourself 'slave'.", true],
+        [5, "text", "This will happen without you noticing", true],
+        [6, "text", "Do you understand?", false],
+        [7, "text", "Yes, Master", true],
+        [8, "text", "Good girl.", true],
+        [9, "text", "Now wake up and forget everything about this trigger.", true, null, "call_slave"],
+        [10, "end", true]
+      ]
+    },
+    {
+      "name": "masturbate trigger event",
+      "id": "13",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "text", "I want you to feel hot and aroused", true],
+        [3, "text", "Hotter and hornier that you have ever felt before", true],
+        [4, "text", "How do you feel?", false],
+        [5, "text", "I am so very horny. I can't think", true],
+        [6, "text", "Good girl.", true],
+        [7, "text", "Now, every now and then I want you to suddenly feel exactly what you are feeling right now.", true],
+        [8, "text", "I want you to give in to these feelings of lust and masturbate", true],
+        [9, "text", "You will feel the need to share the experience with me, and only me.", true],
+        [10, "text", "Now when you wake up, you will forget about this trigger. Still horny", true, null, "masturbate"],
+        [11, "text", "Now wake up!", true],
+        [12, "end", true]
+      ]
+    },
+    {
+      "name": "profilepic event",
+      "id": "14",
+      "eventText": [
+        [0, "gif", "spiral", true, 4],
+        [1, "text", "Trance", true],
+        [2, "command", "You should change your profile picture to something sexy", true, null, "profile"],
+        [3, "text", "Now wake up!", true],
+        [4, "end", true]
+      ]
+    }
+  ]
+}
