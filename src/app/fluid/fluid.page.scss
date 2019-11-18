@@ -25,9 +25,9 @@
     float: left;
 }
 .avatar {
-    width: calc(16vw - 4px);
-    height: calc(16vw - 4px);
-    border-radius: calc(8vw - 2px);
+    width: calc(70px - 4px);
+    height: calc(70px - 4px);
+    border-radius: calc(80px - 2px);
     z-index: 2;
 }
 .restrict {
@@ -48,7 +48,7 @@
     float: right;
 }
 .text {
-    font-size: 16px;
+    font-size: 12px;
 }
 .card {
     margin-bottom: 9px;
@@ -118,26 +118,26 @@ ion-content{
 }
 .name-row-left{
     background: white;
-    padding: 5px 10px 5px 9vw;
-    margin-left: -8vw;
+    padding: 5px 10px 5px 90px;
+    margin-left: -80px;
     z-index: 1;
     width: fit-content;
     border-top-right-radius: 16px;
-    font-size: 18px;
+    font-size: 12px;
     position: relative;
-    height: 6vw;
+    height: 40px;
 }
 .name-row-right{
     background: white;
-    padding: 5px 9vw 5px 10px;
-    margin-right: -8vw;
+    padding: 5px 90px 5px 10px;
+    margin-right: -80px;
     z-index: 1;
     text-align: right;
     width: fit-content;
     border-top-left-radius: 16px;
-    font-size: 18px;
+    font-size: 12px;
     position: relative;
-    height: 6vw;
+    height: 40px;
 }
 .name-row-parent-left{
     display: flex;
@@ -151,26 +151,26 @@ ion-content{
 }
 .message-row-left{
     background: #0c96df;
-    padding: 7px 15px 8px 11vw;
-    margin-left: -8vw;
-    min-height: 10vw;
+    padding: 7px 15px 8px 80px;
+    margin-left: -80px;
+    min-height: 40px;
     display: flex;
     align-items: center;
-    border-top-right-radius: 5vw;
-    border-bottom-right-radius: 5vw;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
     color: white;
     position: relative;
     font-size: 24px;
 }
 .message-row-right{
     background: #00C06D;
-    padding: 7px 15vw 8px 11px;
-    margin-right: -8vw;
-    min-height: 10vw;
+    padding: 7px 80px 8px 15px;
+    margin-right: -80px;
+    min-height: 40px;
     display: flex;
     align-items: center;
-    border-top-left-radius: 5vw;
-    border-bottom-left-radius: 5vw;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
     color: white;
     position: relative;
     font-size: 24px;
@@ -178,9 +178,9 @@ ion-content{
 .avatar-parent{
     // border: 1vw solid white;
     z-index: 2;
-    border-radius: 8vw;
-    min-width: 16vw;
-    height: 16vw;
+    border-radius: 80px;
+    min-width: 70px;
+    height: 70px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -188,53 +188,51 @@ ion-content{
 }
 .avatar-border{
     position: absolute;
-    width: 16vw;
-    height: 16vw;
+    width: 70px;
+    height: 70px;
     top: 0;
     left: 0;
-    border: 1vw solid white;
+    border: 10px solid white;
     border-radius: 50%;
     box-shadow: none;
     outline: none;
 }
 .reverse-arc-left{
-    width: 6vw;
-    height: 4vw;
+    height: 40px;
     position: absolute;
     background: white;
-    left: 5.8vw;
-    bottom: -4vw;
+    left: 0.1px;
+    bottom: -40px;
     display: flex;
     justify-content: flex-end;
-    border-bottom-right-radius: 4vw;
+    border-bottom-right-radius: 40px;
 }
 .reverse-arc-color-left{
-    width: 4vw;
-    height: 4vw;
+    width: 40px;
+    height: 40px;
     background: #0c96df;
-    border-top-left-radius: 4vw;
-    border-bottom-right-radius: 2vw;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 20px;
 }
 .reverse-arc-right{
-    width: 6vw;
-    height: 4vw;
+    height: 40px;
     position: absolute;
     background: white;
-    right: 5.8vw;
-    bottom: -4vw;
+    right: 0.1px;
+    bottom: -40px;
     display: flex;
     justify-content: flex-start;
-    border-bottom-left-radius: 4vw;
+    border-bottom-left-radius: 40px;
 }
 #chat-parent{
     scroll-behavior: smooth;
 }
 .reverse-arc-color-right{
-    width: 4vw;
-    height: 4vw;
+    width: 40px;
+    height: 40px;
     background: #00C06D;
-    border-top-right-radius: 4vw;
-    border-bottom-left-radius: 3vw;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 30px;
 }
 .timer-left{
     position: absolute;
@@ -288,6 +286,10 @@ html {
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
+}
+
+.image-send {
+    border-radius: 15px;
 }
 // .reverse-msg-arc-left{
 //     position: absolute;

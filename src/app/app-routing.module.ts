@@ -20,11 +20,7 @@ const routes: Routes = [
     redirectTo: 'fluid',
     pathMatch: 'full'
   },
-  { path: 'business', loadChildren: './business/business.module#BusinessPageModule' },
-  { path: 'elegance', loadChildren: './elegance/elegance.module#ElegancePageModule' },
-  { path: 'fluid', loadChildren: './fluid/fluid.module#FluidPageModule' },
-  { path: 'pastry', loadChildren: './pastry/pastry.module#PastryPageModule' },
-  { path: 'bubble', loadChildren: './bubble/bubble.module#BubblePageModule' }
+  { path: 'fluid', loadChildren: './fluid/fluid.module#FluidPageModule' }
 
 ];
 

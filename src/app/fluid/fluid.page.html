@@ -22,7 +22,7 @@
 </ion-header>
 
 <ion-content scroll="false" padding-vertical fullscreen>
-  <div id="chat-parent" class="bg-image" [ngClass]="{ 'bg-image-X': phone_model=='iPhone X'}">
+  <div id="chat-parent" class="contentin bg-image" [ngClass]="{ 'bg-image-X': phone_model=='iPhone X'}">
     <div id="chat-container">
       <ion-row *ngFor="let conv of conversation; let i = index;" class="full no-padding">
         <ion-col class="no-padding chat-row" [ngClass]="{ 'reverse': conv.sender}">
@@ -45,7 +45,7 @@
             </div>
             <div class="no-padding" [ngClass]="{ 'message-row-right': conv.sender,'message-row-left': !conv.sender}">
               <ion-text *ngIf="!conv.img" no-margin class="text">{{conv.text}}</ion-text>
-              <ion-text *ngIf="conv.img" no-margin class="text"><img width="1000vw" height="auto" [src]="'assets/images/convo/' + conv.text"></ion-text>
+              <ion-text *ngIf="conv.img" no-margin class="text"><img class="image-send" width="500px" height="auto" [src]="'assets/images/convo/' + conv.text"></ion-text>
             </div>
           </div>
 
@@ -55,7 +55,7 @@
   </div>
 </ion-content>
 <ion-footer translucent [ngClass]="{ 'custom-footer': phone_model=='iPhone X'}">
-  <ion-row class="input-position" [ngClass]="{ 'custom-footer-row': phone_model=='iPhone X'}">
+  <ion-row class="input-position" [ngClass]="{ 'custom-footer-row': phone_model=='iPhone X'}" *ngFor="let opt of options; let i = index;">
     <ion-col size="9">
       <ion-input class="input restrict" type="text" placeholder="Type a message" [(ngModel)]="input" padding-start></ion-input>
     </ion-col>
