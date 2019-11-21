@@ -21,7 +21,6 @@ export class EventService {
         if (inEvent) {
         return true;
         } else if (this.defaultResponses.includes(response)) {
-            console.log('an event just started;');
             return true;
         } else {
             return false;
@@ -35,7 +34,6 @@ export class EventService {
     }
 
     private getEvent(story, step) {
-        console.log('story ' + story + ' step ' + step);
         let returnStep;
         let active;
         for (let i = 0; i < this.events.events.length; i++) {
@@ -52,14 +50,12 @@ export class EventService {
     }
 
     getOptions(story: number) {
-        console.log('retrieve info...');
         let active;
         for (let i = 0; i < this.events.events.length; i++) {
             if (this.events.events[i].id == story) {
                 active = this.events.events[i];
             }
         }
-        console.log(active);
         return active.next;
     }
 }

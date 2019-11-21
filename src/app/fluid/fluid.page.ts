@@ -30,8 +30,8 @@ export class FluidPage implements OnInit {
   lockResponse =  [false, 'Type a message'];
   imagevar = 'assets/images/sg1.jpg';
   inEvent = false;
-  // private story = 1;
-  private story = this.generateRandomImage(1);
+  private story = 2;
+  //private story = this.generateRandomImage(1);
   private step = 0;
 
   constructor(private platform: Platform,
@@ -100,25 +100,34 @@ export class FluidPage implements OnInit {
     return check;
   }
 
-  scrollToBottom() {
+  scrollToBottom(extra?) {
     const content = document.getElementById('chat-container');
     const parent = document.getElementById('chat-parent');
     const scrollOptions = {
       left: 0,
-      top: content.offsetHeight + 40
+      top: null
     };
+    if(extra) {
+      scrollOptions.top = content.offsetHeight + 320;
+    } else {
+      scrollOptions.top = content.offsetHeight + 40;
+    }
     setTimeout(function() {
       parent.scrollTo(scrollOptions);
     }, 100);
   }
 
   private generateResponse(input) {
-    this.client
-        .textRequest(input)
-        .then(response => {
-          /* do something */
-          this.sendResponse(response.result.fulfillment.speech);
-        });
+    if(this.input.length < 256) {
+      this.client
+          .textRequest(input)
+          .then(response => {
+            /* do something */
+            this.sendResponse(response.result.fulfillment.speech);
+          });
+    } else {
+      this.sendResponse("You can't send long messages in this app... It's kind of a bother, right");
+    }
   }
 
   sendResponse(response) {
@@ -193,7 +202,11 @@ export class FluidPage implements OnInit {
     this.conversation.push({ text: text, sender: sender, image: avatar, img: image,
       minutes: this.getMinutesPassed() });
     this.lockResponse = [false, 'Type a message'];
-    this.scrollToBottom();
+    if(image) {
+      this.scrollToBottom(true);
+    } else {
+      this.scrollToBottom();
+    }
   }
 
   private sendEvent(eventChain) {

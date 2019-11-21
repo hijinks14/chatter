@@ -45,7 +45,7 @@
             </div>
             <div class="no-padding" [ngClass]="{ 'message-row-right': conv.sender,'message-row-left': !conv.sender}">
               <ion-text *ngIf="!conv.img" no-margin class="text">{{conv.text}}</ion-text>
-              <ion-text *ngIf="conv.img" no-margin class="text"><img class="image-send" width="500px" height="auto" [src]="'assets/images/convo/' + conv.text"></ion-text>
+              <ion-text *ngIf="conv.img" no-margin class="text"><img class="image-send" width="auto" height="300px" [src]="'assets/images/convo/' + conv.text"></ion-text>
             </div>
           </div>
 

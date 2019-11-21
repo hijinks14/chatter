@@ -17,7 +17,37 @@
         [9, "text", [1, "I understand", false], false, false],
         [10, "text", [0, "Now, wake back up for me and forget this happened", false], true, true]
       ],
-      "next": [11]
+      "next": [11, 20, 30]
+    },
+    {
+      "name": "Intro event deep",
+      "comment": "longer introduction",
+      "id": "2",
+      "eventText": [
+        [0, "text", [0, "Have you seen that new image that has been going around?", false], false, false],
+        [1, "text", [0, "Take a look!", false], false, false],
+        [2, "gif", [0, "spiral", 4], false, false],
+        [3, "text", [0, "Watch how it keeps spinning and spinning", false], false, false],
+        [4, "text", [0, "Make yourself comfortable while watching it", false], false, false],
+        [5, "text", [0, "Rest your hands down by your side", false], false, false],
+        [6, "text", [0, "Nothing matters", false], false, false],
+        [7, "text", [0, "And as you begin to feel more and more relaxed...", false], false, false],
+        [8, "text", [0, "And you will notice how relaxed your whole body has become", false], false, false],
+        [9, "text", [0, "You soon become aware of a growing peaceful feeling inside", false], false, false],
+        [10, "text", [0, "A warmth spreading throughout your body", false], false, false],
+        [11, "text", [0, "Almost like a mental massage...", false], false, false],
+        [12, "text", [0, "rubbing all of your thoughts away", false], false, false],
+        [13, "text", [0, "Leaving a peaceful nothingness", false], false, false],
+        [14, "text", [0, "Nowwww...", false], false, false],
+        [15, "text", [0, "I want your to remember this feeling", false], false, false],
+        [16, "text", [0, "Take it all in", false], false, false],
+        [17, "text", [0, "From now on, whenever I send you one of these spirals I want you to drop just as deep. Completely empty and open to my commands", false], false, false],
+        [18, "text", [0, "After waking up, you will never remember being hypnotized", false], false, false],
+        [19, "text", [0, "Do you understand?", true], true, false],
+        [20, "text", [1, "I understand", false], false, false],
+        [21, "text", [0, "Now, wake back up for me and forget this happened", false], true, true]
+      ],
+      "next": [11, 20, 30, 31]
     },
     {
       "name": "Breast line intro",
@@ -33,7 +63,137 @@
         [6, "text", [0, "Good girl", false], false, false],
         [7, "text", [0, "Now, wake back up", false], true, true]
       ],
-      "next": [11]
+      "next": [20, 30, 31]
+    },
+    {
+      "name": "Sex line intro",
+      "comment": "Opens sex story line - contains masturbation ",
+      "id": "20",
+      "eventText": [
+        [0, "gif", [0, "spiral", 4], false, false],
+        [1, "text", [0, "Trance", false], false, false],
+        [2, "text", [0, "I want you to think about me", false], false, false],
+        [3, "text", [0, "I want you to think about my cock", false], false, false],
+        [4, "text", [0, "I want you to feel hot and aroused", false], false, false],
+        [5, "text", [0, "I want you to masturbate, thinking about my cock", false], false, false],
+        [6, "text", [0, "What are you doing right now?", true], true, false],
+        [7, "text", [1, "I am masturbating while thinking about your cock", false], false, false],
+        [8, "text", [0, "Good girl. Send me a picture", false], false, false],
+        [9, "image", [1, "masturbate", 10], false, false],
+        [10, "text", [0, "Very good", false], false, false],
+        [11, "text", [0, "After you cum you will forget about being hypnotized", false], false, false],
+        [12, "text", [0, "and from now on I want you to fantasize about my cock whenever you feel horny", false], false, false],
+        [13, "text", [0, "Now cum and wake up!", false], true, true]
+      ],
+      "next": [21, 22, 23, 31]
+    },
+    {
+      "name": "Masturbate more",
+      "comment": "More masturbation play",
+      "id": "21",
+      "eventText": [
+        [0, "gif", [0, "spiral", 4], false, false],
+        [1, "text", [0, "Trance", false], false, false],
+        [2, "text", [0, "I want you to feel hot and aroused", false], false, false],
+        [3, "text", [0, "Hotter and hornier that you have ever felt before", false], false, false],
+        [4, "text", [0, "How do you feel?", true], true, false],
+        [5, "text", [1, "I am so very horny. I can't think straight", false], false, false],
+        [6, "text", [0, "Good girl", false], false, false],
+        [7, "text", [0, "Now, every now and then I want you to suddenly feel exactly what you are feeling right now", false], false, false],
+        [8, "text", [0, "I want you to give in to these feelings of lust and masturbate", false], false, false],
+        [9, "text", [0, "You will feel the need to share the experience with me, and only me", false], false, false],
+        [10, "text", [0, "Now when you wake up, you will forget about this trigger. Still horny", false], false, false],
+        [11, "text", [0, "I want you to give in to these feelings of lust and masturbate", false], false, false],
+        [12, "text", [0, "Now wake up!", false], true, true]
+      ],
+      "next": [22, 23]
+    },
+    {
+      "name": "Show pussy",
+      "comment": "Send images of your pussy",
+      "id": "22",
+      "eventText": [
+        [0, "gif", [0, "spiral", 4], false, false],
+        [1, "text", [0, "Trance", false], false, false],
+        [2, "text", [0, "Good girl.", false], false, false],
+        [3, "text", [0, "I am in a hurry so quickly send me a picture of your pussy so I can get off", false], false, false],
+        [4, "image", [1, "pussy", 4], false, false],
+        [5, "text", [0, "Very nice", false], false, false],
+        [6, "text", [0, "Now wake up and get on with your day.", false], true, true]
+      ],
+      "next": [23]
+    },
+    {
+      "name": "Get ready",
+      "comment": "Present yourself for your master",
+      "id": "23",
+      "eventText": [
+        [0, "gif", [0, "spiral", 4], false, false],
+        [1, "text", [0, "Trance", false], false, false],
+        [2, "text", [0, "I am feeling very horny, my slave", false], false, false],
+        [3, "text", [0, "I want you to follow my commands very carefully", false], false, false],
+        [4, "text", [0, "When you wake up, you will come to my office", false], false, false],
+        [5, "text", [0, "You will strip and get yourself ready and presented for your master", false], false, false],
+        [6, "text", [0, "When you are ready, you will send me a picture of yourself and say: 'I am ready for you'", false], false, false],
+        [7, "text", [0, "If you do it right, I will come and reward you.", false], false, false],
+        [8, "text", [0, "After I am done, you will go back to your own office and forget everything that happened.", false], false, false],
+        [9, "text", [0, "Do you understand me?", true], true, false],
+        [10, "text", [1, "Yes. I understand you", false], false, false],
+        [11, "text", [0, "Good girl.", false], false, false],
+        [12, "text", [0, "Now wake up!", false], false, false],
+        [13, "image", [1, "present", 3], false, false],
+        [14, "text", [1, "I am ready for you", false], false, false],
+        [15, "text", [0, "You did well slave. I enjoyed using you", false], false, false],
+        [16, "image", [0, "fucked", 3], false, false],
+        [17, "text", [0, "Thank you for helping me get off", false], true, true]
+      ],
+      "next": [11, 30]
+    },
+    {
+      "name": "Strip",
+      "comment": "You strip",
+      "id": "30",
+      "eventText": [
+        [0, "gif", [0, "spiral", 4], false, false],
+        [1, "text", [0, "Trance", false], false, false],
+        [2, "text", [0, "Good girl.", false], false, false],
+        [3, "text", [0, "I am in the mood so I want you to strip for me and send me some pictures. When you send me the Last picture I want you to cum hard", false], false, false],
+        [4, "image", [1, "strip", 4], false, false],
+        [5, "image", [1, "nude", 5], false, false],
+        [6, "image", [1, "present", 3], false, false],
+        [7, "image", [1, "orgasm", 1], false, false],
+        [8, "text", [0, "Very nice", false], false, false],
+        [9, "text", [0, "Now get dressed, but leave your underwear off. Then get on with your day", false], true, true]
+      ],
+      "next": [11, 20, 31]
+    },
+    {
+      "name": "Nude",
+      "comment": "Get naked and send pics",
+      "id": "31",
+      "eventText": [
+        [0, "gif", [0, "spiral", 4], false, false],
+        [1, "text", [0, "Trance", false], false, false],
+        [2, "text", [0, "Now go into a deep trance", false], false, false],
+        [3, "text", [0, "I am your master.", false], false, false],
+        [4, "text", [0, "You are mine", false], false, false],
+        [5, "text", [0, "You will do whatever I ask you without question", false], false, false],
+        [6, "text", [0, "Do you understand me?", true], true, false],
+        [7, "text", [1, "Yes. I understand you", false], false, false],
+        [8, "text", [0, "Good girl", false], false, false],
+        [9, "text", [0, "Now, show me your naked body", false], false, false],
+        [10, "image", [1, "nude", 5], false, false],
+        [11, "text", [0, "Good. Now, when I tell you to wake up, you will feel very hot and you will masturbate thinking about me", false], false, false],
+        [12, "text", [0, "When you cum, I want you to send me a picture of you and say 'Thank you, master'", false], false, false],
+        [13, "text", [0, "After that you will forget about being hypnotized", false], false, false],
+        [14, "text", [0, "Do you understand?", false], false, false],
+        [15, "text", [1, "Yes master", false], false, false],
+        [16, "text", [0, "Good girl", false], false, false],
+        [17, "text", [0, "Now wake up!", false], false, false],
+        [18, "image", [1, "nude", 5], false, false],
+        [19, "text", [1, "Thank you master!", false], true, true]
+      ],
+      "next": [11, 20]
     }
   ]
 }
