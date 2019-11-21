@@ -9,7 +9,7 @@ export class EventService {
     events: any;
     defaultResponses: any = ['Would you have a look at this', 'Here, look at this', 'Check this out:', 'Look at this',
         'I wanted to show you something', 'Hey wanna see something cool?', 'Look at this for a minute, ok?',
-        'Good girl', 'Very well...', 'Good, Pet', 'Very good, slave', '??', 'Please relax'];
+        'Good girl', 'Very well...', 'Good, Pet', 'Very good, slave', 'Please relax'];
 
     constructor(private http: HttpClient) {
         this.http.get('./assets/events.json').subscribe(result => {

@@ -27,6 +27,7 @@ export class FluidPage implements OnInit {
   firstTime = true;
   accessToken: any = '61ef5a2d7dd64ad1a24960967f8279fa';
   playerTurn: any = true;
+  lockResponse =  [false, 'Type a message'];
   imagevar = 'assets/images/sg1.jpg';
   inEvent = false;
   private story = 1;
@@ -121,6 +122,8 @@ export class FluidPage implements OnInit {
   }
 
   sendResponse(response) {
+    console.log('answer');
+    console.log(response);
     let eventChain = null;
     if (this.eventService.checkevent(response, this.inEvent)) {
       this.inEvent = true;
@@ -155,11 +158,24 @@ export class FluidPage implements OnInit {
   }
 
   private send() {
-    if(this.input.length > 0) {
-      this.addToConversation(this.input, 1, false);
-      this.generateResponse(this.input);
+    if(this.input === 'You start typing without noticing...') {
+      this.step = this.step + 1;
       this.input = null;
+      const eventChain = this.eventService.follow(this.story, this.step);
       this.playerTurn = false;
+      this.lockResponse = [false, 'Type a message'];
+      this.sendEvent(eventChain);
+    } else {
+      if(this.input) {
+        if (this.input.length > 0) {
+          this.addToConversation(this.input, 1, false);
+          console.log('asking bot');
+          this.generateResponse(this.input);
+          this.input = null;
+          this.playerTurn = false;
+          this.lockResponse = [false, 'Type a message'];
+        }
+      }
     }
   }
 
@@ -173,14 +189,18 @@ export class FluidPage implements OnInit {
     // @ts-ignore
     this.conversation.push({ text: text, sender: sender, image: avatar, img: image,
       minutes: this.getMinutesPassed() });
+    this.lockResponse = [false, 'Type a message'];
     this.scrollToBottom();
   }
 
   private sendEvent(eventChain) {
-    console.log(eventChain);
     switch (eventChain.type) {
       case 'text':
           this.addToConversation(eventChain.content[1], eventChain.content[0], false);
+          if(eventChain.content[2]) {
+            this.lockResponse = [true, 'You start typing without noticing...'];
+            this.input = 'You start typing without noticing...';
+          }
         break;
       case 'gif':
         this.addToConversation((eventChain.content[1] + '_' +
@@ -198,10 +218,9 @@ export class FluidPage implements OnInit {
     if (eventChain.pause) {
       this.playerTurn = true;
     } else {
-      console.log('queue another step due to:');
-      console.log(eventChain.ends);
+      this.step = this.step + 1;
       setTimeout(() => {
-        eventChain = this.eventService.follow(this.story, (this.step + 1));
+        eventChain = this.eventService.follow(this.story, this.step);
         this.sendEvent(eventChain);
       }, 3000);
     }
