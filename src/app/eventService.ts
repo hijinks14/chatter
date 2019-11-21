@@ -30,7 +30,7 @@ export class EventService {
 
     follow (story, step) {
         const event = this.getEvent(story, step);
-        const respObject = {'story': story, 'step': step, 'type': event[1], 'content': event[2], 'ends': event[3]};
+        const respObject = {'story': story, 'step': step, 'type': event[1], 'content': event[2], 'pause': event[3], 'ends': event[4]};
         return respObject;
     }
 
@@ -48,5 +48,17 @@ export class EventService {
             }
         }
         return returnStep;
+    }
+
+    getOptions(story: number) {
+        console.log('retrieve info...');
+        let active;
+        for (let i = 0; i < this.events.events.length; i++) {
+            if (this.events.events[i].id == story) {
+                active = this.events.events[i];
+            }
+        }
+        console.log(active);
+        return active.next;
     }
 }

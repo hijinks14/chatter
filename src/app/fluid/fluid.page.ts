@@ -123,6 +123,7 @@ export class FluidPage implements OnInit {
   sendResponse(response) {
     let eventChain = null;
     if (this.eventService.checkevent(response, this.inEvent)) {
+      this.inEvent = true;
       eventChain = this.eventService.follow(this.story, this.step);
       this.sendEvent(eventChain);
       if (eventChain.ends) {
@@ -189,7 +190,10 @@ export class FluidPage implements OnInit {
         break;
     }
     if (eventChain.ends) {
-      console.log('done');
+      this.inEvent = false;
+      this.selectNextEvent();
+    }
+    if (eventChain.pause) {
       this.playerTurn = true;
     } else {
       console.log('queue another step due to:');
@@ -199,5 +203,12 @@ export class FluidPage implements OnInit {
         this.sendEvent(eventChain);
       }, 3000);
     }
+  }
+
+  private selectNextEvent() {
+    const options = this.eventService.getOptions(this.story);
+    const selected = this.generateRandomImage(options.length);
+    this.story = options[selected];
+    this.step = 0;
   }
 }
