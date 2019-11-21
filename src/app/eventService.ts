@@ -35,6 +35,7 @@ export class EventService {
     }
 
     private getEvent(story, step) {
+        console.log('story ' + story + ' step ' + step);
         let returnStep;
         let active;
         for (let i = 0; i < this.events.events.length; i++) {

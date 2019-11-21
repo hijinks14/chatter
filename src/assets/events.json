@@ -24,8 +24,16 @@
       "comment": "Opens ",
       "id": "11",
       "eventText": [
-        [0, "text", [0, "Now I have started breast storyline", false], true, true]
-      ]
+        [0, "gif", [0, "spiral", 4], false, false],
+        [1, "text", [0, "Go into trance for me", false], false, false],
+        [2, "text", [0, "I want you to go deeper", false], false, false],
+        [3, "text", [0, "Good, From now on, whenever I send you one of these spirals I want you to drop deep, like a good girl", false], false, false],
+        [4, "text", [0, "Send me a picture of your tits", false], false, false],
+        [5, "image", [1, "tits", 6], false, false],
+        [6, "text", [0, "Good girl", false], false, false],
+        [7, "text", [0, "Now, wake back up", false], true, true]
+      ],
+      "next": [11]
     }
   ]
 }
