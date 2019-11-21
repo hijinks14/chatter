@@ -1,12 +1,3 @@
-/**
- * Chatter - Chat themes Ionic 4 (https://www.enappd.com)
- *
- * Copyright © 2018-present Enappd. All rights reserved.
- *
- * This source code is licensed as per the terms found in the
- * LICENSE.md file in the root directory of this source .
- *
- */
 import {Component, HostListener, OnInit} from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Device } from '@ionic-native/device/ngx';
@@ -14,6 +5,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { ApiAiClient } from 'api-ai-javascript/es6/ApiAiClient';
 import { HttpClient } from '@angular/common/http';
 import RegExp from 'typescript-dotnet-commonjs/System/Text/RegularExpressions';
+import { EventService } from 'src/app/eventService';
 
 @Component({
   selector: 'app-fluid',
@@ -36,12 +28,14 @@ export class FluidPage implements OnInit {
   accessToken: any = '61ef5a2d7dd64ad1a24960967f8279fa';
   playerTurn: any = true;
   imagevar = 'assets/images/sg1.jpg';
+  inEvent = false;
+  private story = 1;
+  // private story = this.generateRandomImage(2);
+  private step = 0;
 
   constructor(private platform: Platform,
-    public alertController: AlertController, private device: Device, private menuCtrl: MenuController, private http: HttpClient) {
-    this.http.get('./assets/events.json').subscribe(result => {
-      this.events = result;
-    });
+    public alertController: AlertController, private device: Device, private menuCtrl: MenuController,
+              private http: HttpClient, private eventService: EventService) {
     this.client = new ApiAiClient({
       accessToken: this.accessToken
     });
@@ -65,7 +59,6 @@ export class FluidPage implements OnInit {
 
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    console.log(event);
     if (event.key === 'Enter' && this.playerTurn === true) {
       this.send();
     }
@@ -90,8 +83,7 @@ export class FluidPage implements OnInit {
         header: 'Thank you for using chatter! Our brand new messaging app.',
         subHeader: 'Disclaimer',
         message: 'This app contains graphic material and strong language. Part of the conversations are machine-generated.' +
-            ' By continuing you acknowledge this and confirm to be 18+. The game was originally designed to be viewed on mobile. ' +
-            'If the resolutions seems off when playing on PC, please resize the window to phone format.',
+            ' By continuing you acknowledge this and confirm to be 18+.',
         buttons: ['OK']
       });
 
@@ -99,7 +91,7 @@ export class FluidPage implements OnInit {
     }
   }
 
-  checkStrinSubstring(string, substringArray) {
+  checkStringSubstring(string, substringArray) {
     let check = false;
     if (new RegExp(substringArray.join('|')).isMatch(string)) {
       check = true;
@@ -117,7 +109,6 @@ export class FluidPage implements OnInit {
     setTimeout(function() {
       parent.scrollTo(scrollOptions);
     }, 100);
-    console.log('scroll');
   }
 
   private generateResponse(input) {
@@ -130,10 +121,20 @@ export class FluidPage implements OnInit {
   }
 
   sendResponse(response) {
-    setTimeout(() => {
-      // @ts-ignore
-      this.privateAddToConversation(response, 0, 'assets/images/sg2.jpg', false);
-    }, 3000);
+    let eventChain = null;
+    if (this.eventService.checkevent(response, this.inEvent)) {
+      eventChain = this.eventService.follow(this.story, this.step);
+      this.sendEvent(eventChain);
+      if (eventChain.ends) {
+        this.playerTurn = true;
+      }
+    } else {
+      setTimeout(() => {
+        // @ts-ignore
+        this.addToConversation(response, 0, false);
+        this.playerTurn = true;
+      }, 3000);
+    }
   }
 
   generateRandomImage(max) {
@@ -153,15 +154,50 @@ export class FluidPage implements OnInit {
   }
 
   private send() {
-    this.privateAddToConversation(this.input, 1, this.imagevar, false);
+    this.addToConversation(this.input, 1, false);
     this.generateResponse(this.input);
     this.input = null;
+    this.playerTurn = false;
   }
 
-  privateAddToConversation( text, sender, image, img) {
+  private addToConversation( text, sender, image) {
+    let avatar;
+    if (sender === 0) {
+      avatar = 'assets/images/sg2.jpg';
+    } else {
+      avatar = this.imagevar;
+    }
     // @ts-ignore
-    this.conversation.push({ text: text, sender: sender, image: image, img: img,
+    this.conversation.push({ text: text, sender: sender, image: avatar, img: image,
       minutes: this.getMinutesPassed() });
     this.scrollToBottom();
+  }
+
+  private sendEvent(eventChain) {
+    console.log(eventChain);
+    switch (eventChain.type) {
+      case 'text':
+          this.addToConversation(eventChain.content[1], eventChain.content[0], false);
+        break;
+      case 'gif':
+        this.addToConversation((eventChain.content[1] + '_' +
+            this.generateRandomImage(eventChain.content[2]).toString() + '.gif'), eventChain.content[0], true);
+        break;
+      case 'image':
+        this.addToConversation((eventChain.content[1] + '_' +
+            this.generateRandomImage(eventChain.content[2]).toString() + '.png'), eventChain.content[0], true);
+        break;
+    }
+    if (eventChain.ends) {
+      console.log('done');
+      this.playerTurn = true;
+    } else {
+      console.log('queue another step due to:');
+      console.log(eventChain.ends);
+      setTimeout(() => {
+        eventChain = this.eventService.follow(this.story, (this.step + 1));
+        this.sendEvent(eventChain);
+      }, 3000);
+    }
   }
 }
