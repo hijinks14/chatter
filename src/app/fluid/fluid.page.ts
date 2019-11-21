@@ -155,10 +155,12 @@ export class FluidPage implements OnInit {
   }
 
   private send() {
-    this.addToConversation(this.input, 1, false);
-    this.generateResponse(this.input);
-    this.input = null;
-    this.playerTurn = false;
+    if(this.input.length > 0) {
+      this.addToConversation(this.input, 1, false);
+      this.generateResponse(this.input);
+      this.input = null;
+      this.playerTurn = false;
+    }
   }
 
   private addToConversation( text, sender, image) {

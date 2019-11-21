@@ -2,15 +2,18 @@
   "events": [
     {
       "name": "Intro event basic",
+      "comment": "short and basic introduction",
       "id": "1",
       "eventText": [
-          [0, "text", [0, "Look at this weird image I found:"], false, false],
-          [1, "gif", [0, "spiral", 4], true, true]
+          [0, "text", [0, "Look at this weird image I found:", false], false, false],
+          [1, "gif", [0, "spiral", 4], false, false],
+          [2, "text", [0, "How does this make you feel?", true], true, true]
       ],
       "next": [3, 4]
     },
     {
       "name": "Intro event long",
+      "comment": "long and methodical introduction",
       "id": "2",
       "eventText": [
 
@@ -18,6 +21,7 @@
     },
     {
       "name": "Next event 1",
+      "comment": "Debug",
       "id": "3",
       "eventText": [
         [0, "text", [0, "Now I have started story 3"], true, true]
@@ -25,6 +29,7 @@
     },
     {
       "name": "Next event 2",
+      "comment": "Debug",
       "id": "4",
       "eventText": [
         [0, "text", [0, "Now I have started story 4"], true, true]
