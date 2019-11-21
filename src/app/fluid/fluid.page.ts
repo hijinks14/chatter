@@ -114,19 +114,25 @@ export class FluidPage implements OnInit {
       left: 0,
       top: content.offsetHeight + 40
     };
-
-    parent.scrollTo(scrollOptions);
-    setTimeout(() => {
+    setTimeout(function() {
       parent.scrollTo(scrollOptions);
-    }, 500);
+    }, 100);
+    console.log('scroll');
+  }
+
+  private generateResponse(input) {
+    this.client
+        .textRequest(input)
+        .then(response => {
+          /* do something */
+          this.sendResponse(response.result.fulfillment.speech);
+        });
   }
 
   sendResponse(response) {
     setTimeout(() => {
       // @ts-ignore
-      this.conversation.push({ text: response, sender: 0, image: 'assets/images/sg2.jpg', img: false,
-          minutes: this.getMinutesPassed() });
-      this.scrollToBottom();
+      this.privateAddToConversation(response, 0, 'assets/images/sg2.jpg', false);
     }, 3000);
   }
 
@@ -147,6 +153,15 @@ export class FluidPage implements OnInit {
   }
 
   private send() {
+    this.privateAddToConversation(this.input, 1, this.imagevar, false);
+    this.generateResponse(this.input);
+    this.input = null;
+  }
 
+  privateAddToConversation( text, sender, image, img) {
+    // @ts-ignore
+    this.conversation.push({ text: text, sender: sender, image: image, img: img,
+      minutes: this.getMinutesPassed() });
+    this.scrollToBottom();
   }
 }
