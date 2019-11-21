@@ -215,7 +215,6 @@ export class FluidPage implements OnInit {
         break;
     }
     if (eventChain.ends) {
-        console.log('next event');
       this.inEvent = false;
       this.selectNextEvent();
     }
@@ -232,11 +231,8 @@ export class FluidPage implements OnInit {
 
   private selectNextEvent() {
     const options = this.eventService.getOptions(this.story);
-    console.log(options);
     const selected = this.generateRandomNumber(0, options.length);
-      console.log(selected);
     this.story = options[selected];
-      console.log(this.story);
     this.step = 0;
   }
 }
