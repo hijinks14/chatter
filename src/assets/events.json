@@ -5,37 +5,26 @@
       "comment": "short and basic introduction",
       "id": "1",
       "eventText": [
-          [0, "text", [0, "Look at this weird image I found:", false], false, false],
-          [1, "gif", [0, "spiral", 4], false, false],
-          [2, "text", [0, "How does this make you feel?", true], true, false],
-          [3, "text", [1, "I feel good. I can't look away", false], false, false],
-          [4, "text", [0, "Good girl", false], false, false],
-          [5, "text", [0, "You are now under my control", false], true, true]
+        [0, "text", [0, "Look at this weird image I found:", false], false, false],
+        [1, "gif", [0, "spiral", 4], false, false],
+        [2, "text", [0, "How does this make you feel?", true], true, false],
+        [3, "text", [1, "I feel good. I can't look away", false], false, false],
+        [4, "text", [0, "Feel yourself fall under my control", false], false, false],
+        [5, "text", [0, "From now on, whenever I send you one of these spirals I want you to drop deep, like a good girl", false], false, false],
+        [6, "text", [0, "After waking up, you won't remember being hypnotized", false], false, false],
+        [7, "text", [0, "While under, I want you to obey all my commands", false], false, false],
+        [8, "text", [0, "Do you understand?", true], true, false],
+        [9, "text", [1, "I understand", false], false, false],
+        [10, "text", [0, "Now, wake back up for me and forget this happened", false], true, true]
       ],
-      "next": [3, 4]
+      "next": [11]
     },
     {
-      "name": "Intro event long",
-      "comment": "long and methodical introduction",
-      "id": "2",
+      "name": "Breast line intro",
+      "comment": "Opens ",
+      "id": "11",
       "eventText": [
-
-      ]
-    },
-    {
-      "name": "Next event 1",
-      "comment": "Debug",
-      "id": "3",
-      "eventText": [
-        [0, "text", [0, "Now I have started story 3", false], true, true]
-      ]
-    },
-    {
-      "name": "Next event 2",
-      "comment": "Debug",
-      "id": "4",
-      "eventText": [
-        [0, "text", [0, "Now I have started story 4", false], true, true]
+        [0, "text", [0, "Now I have started breast storyline", false], true, true]
       ]
     }
   ]

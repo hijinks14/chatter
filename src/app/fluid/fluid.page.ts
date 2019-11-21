@@ -30,8 +30,8 @@ export class FluidPage implements OnInit {
   lockResponse =  [false, 'Type a message'];
   imagevar = 'assets/images/sg1.jpg';
   inEvent = false;
-  private story = 1;
-  // private story = this.generateRandomImage(2);
+  // private story = 1;
+  private story = this.generateRandomImage(1);
   private step = 0;
 
   constructor(private platform: Platform,
@@ -122,8 +122,6 @@ export class FluidPage implements OnInit {
   }
 
   sendResponse(response) {
-    console.log('answer');
-    console.log(response);
     let eventChain = null;
     if (this.eventService.checkevent(response, this.inEvent)) {
       this.inEvent = true;
@@ -169,7 +167,6 @@ export class FluidPage implements OnInit {
       if(this.input) {
         if (this.input.length > 0) {
           this.addToConversation(this.input, 1, false);
-          console.log('asking bot');
           this.generateResponse(this.input);
           this.input = null;
           this.playerTurn = false;
