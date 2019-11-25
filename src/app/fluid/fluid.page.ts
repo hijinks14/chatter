@@ -16,9 +16,9 @@ export class FluidPage implements OnInit {
   // @ts-ignore
   startMoment: any = new Date();
 
-  conversation = [ { text: 'Hey, how have you been?', sender: 0, image: 'assets/images/sg2.jpg',
+  conversation: any = [ { text: 'Hey, how have you been?', sender: 0, image: 'assets/images/sg2.jpg',
     img: false, minutes: this.getMinutesPassed() } ];
-  options = [''];
+  options: any = [''];
   phone_model = 'iPhone';
   input: any = '';
   events: any;
@@ -28,11 +28,15 @@ export class FluidPage implements OnInit {
   accessToken: any = '61ef5a2d7dd64ad1a24960967f8279fa';
   playerTurn: any = true;
   lockResponse =  [false, 'Type a message'];
+  imageFolder = 'assets/images/convo/';
   imagevar = 'assets/images/sg1.jpg';
   inEvent = false;
-  private story = 2;
-  //private story = this.generateRandomImage(1);
+  inControl = false;
+  // private story = 10;
+  private story = this.generateRandomImage(2);
+  private previous = 0;
   private step = 0;
+  private commands: any = [];
 
   constructor(private platform: Platform,
     public alertController: AlertController, private device: Device, private menuCtrl: MenuController,
@@ -108,13 +112,13 @@ export class FluidPage implements OnInit {
       top: null
     };
     if(extra) {
-      scrollOptions.top = content.offsetHeight + 320;
+      scrollOptions.top = content.offsetHeight + 260;
     } else {
       scrollOptions.top = content.offsetHeight + 40;
     }
     setTimeout(function() {
       parent.scrollTo(scrollOptions);
-    }, 100);
+    }, 500);
   }
 
   private generateResponse(input) {
@@ -133,12 +137,19 @@ export class FluidPage implements OnInit {
   sendResponse(response) {
     let eventChain = null;
     if (this.eventService.checkevent(response, this.inEvent)) {
+      setTimeout(() => {
       this.inEvent = true;
+      if (this.story === 0) {
+          this.story = this.previous;
+          this.step = 0;
+          this.previous = null;
+      }
       eventChain = this.eventService.follow(this.story, this.step);
       this.sendEvent(eventChain);
       if (eventChain.ends) {
         this.playerTurn = true;
       }
+    }, 3000);
     } else {
       setTimeout(() => {
         // @ts-ignore
@@ -155,6 +166,7 @@ export class FluidPage implements OnInit {
   }
 
   generateRandomNumber(min, max) {
+    console.log('Selecting between: ', min, max);
       // @ts-ignore
       const rand = Math.floor(Math.random() * (max) + min);
       return rand;
@@ -171,6 +183,7 @@ export class FluidPage implements OnInit {
   }
 
   private send() {
+    this.interceptPlayerAction();
     if(this.input === 'You start typing without noticing...') {
       this.step = this.step + 1;
       this.input = null;
@@ -178,7 +191,20 @@ export class FluidPage implements OnInit {
       this.playerTurn = false;
       this.lockResponse = [false, 'Type a message'];
       this.sendEvent(eventChain);
-    } else {
+    } else if (this.commands.length > 0 && this.generateRandomNumber(1, 10) === 1) {
+      if (this.inControl === false ) {
+        this.previous = this.story;
+      }
+        const eventChain = this.eventService.checkCommand(this.commands);
+        this.playerTurn = false;
+        this.lockResponse = [false, 'Type a message'];
+        this.input = '';
+        if (this.story != 0 && this.story != eventChain.content[3]) {
+            this.story = eventChain.content[3];
+        }
+        this.inControl = true;
+        this.sendEvent(eventChain);
+      } else {
       if(this.input) {
         if (this.input.length > 0) {
           this.addToConversation(this.input, 1, false);
@@ -218,6 +244,22 @@ export class FluidPage implements OnInit {
             this.input = 'You start typing without noticing...';
           }
         break;
+      case 'command':
+        this.addToConversation(eventChain.content[1], eventChain.content[0], false);
+        this.commands.push(eventChain.content[3]);
+        if(eventChain.content[2]) {
+          this.lockResponse = [true, 'You start typing without noticing...'];
+          this.input = 'You start typing without noticing...';
+        }
+        break;
+      case 'special_action':
+        this.addToConversation(eventChain.content[1], eventChain.content[0], false);
+        this.resolveAction(eventChain.content[3]);
+        if(eventChain.content[2]) {
+          this.lockResponse = [true, 'You start typing without noticing...'];
+          this.input = 'You start typing without noticing...';
+        }
+        break;
       case 'gif':
         this.addToConversation((eventChain.content[1] + '_' +
             this.generateRandomImage(eventChain.content[2]).toString() + '.gif'), eventChain.content[0], true);
@@ -229,6 +271,7 @@ export class FluidPage implements OnInit {
     }
     if (eventChain.ends) {
       this.inEvent = false;
+      this.inControl = false;
       this.selectNextEvent();
     }
     if (eventChain.pause) {
@@ -245,7 +288,36 @@ export class FluidPage implements OnInit {
   private selectNextEvent() {
     const options = this.eventService.getOptions(this.story);
     const selected = this.generateRandomNumber(0, options.length);
-    this.story = options[selected];
+    console.log('Next: ');
+    console.log(options[selected]);
+    if (options[selected] === 0) {
+      this.story = this.previous;
+    } else {
+      this.story = options[selected];
+      this.previous = this.story;
+    }
+    this.inControl = false;
     this.step = 0;
+  }
+
+  private resolveAction(actionId) {
+    switch (actionId) {
+      case 11:
+        this.imageFolder = 'assets/images/convo/be/';
+        break;
+      case 13:
+        this.imagevar = 'assets/images/sg1_be.jpg';
+        break;
+    }
+
+  }
+
+  private interceptPlayerAction() {
+    switch (this.input) {
+      case 'You can\'t change me!':
+        this.story = 10;
+        this.step = 0;
+        break;
+    }
   }
 }

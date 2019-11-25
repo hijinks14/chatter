@@ -58,4 +58,30 @@ export class EventService {
         }
         return active.next;
     }
+
+    checkCommand(list) {
+        let event: any = null;
+        let respObject: any = null;
+        let story = 1;
+        let step = 0;
+        for(let i = 0; i < list.length; i++) {
+                switch (list[i]) {
+                    case 21:
+                        event = this.getEvent(80, 0);
+                        respObject = {'story': story, 'step': step, 'type': event[1], 'content': event[2], 'pause': event[3], 'ends': event[4]};
+                        break;
+                    default:
+                        event = this.getEvent(1, 0);
+                        respObject = {'story': story, 'step': step, 'type': event[1], 'content': event[2], 'pause': event[3], 'ends': event[4]};
+                        break;
+                }
+         }
+        return respObject;
+    }
+
+    generateRandomNumber(min, max) {
+        // @ts-ignore
+        const rand = Math.floor(Math.random() * (max) + min);
+        return rand;
+    }
 }
